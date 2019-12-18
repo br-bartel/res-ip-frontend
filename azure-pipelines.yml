@@ -26,7 +26,7 @@ steps:
     
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(Build.SourcesDirectory)/build'
+    SourcePath: $(System.ArtifactsDirectory)
     azureSubscription: 'Azure subscription 1(2)(aefb43b4-c2b2-470d-a48d-3c3b26b2d6da)'
     Destination: 'AzureBlob'
     storage: 'resip'
