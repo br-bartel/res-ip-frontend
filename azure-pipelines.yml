@@ -19,3 +19,11 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: AzureFileCopy@3
+  inputs:
+    SourcePath: '$(System.DefaultWorkingDirectory)'
+    azureSubscription: 'Azure subscription 1(aefb43b4-c2b2-470d-a48d-3c3b26b2d6da)'
+    Destination: 'AzureBlob'
+    storage: 'resip'
+    ContainerName: '$web'
