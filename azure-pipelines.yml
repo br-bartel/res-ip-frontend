@@ -20,10 +20,15 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: PublishBuildArtifacts@1
+  inputs: 
+    pathtoPublish: 
+    
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(System.DefaultWorkingDirectory)'
-    azureSubscription: 'Azure subscription 1(aefb43b4-c2b2-470d-a48d-3c3b26b2d6da)'
+    SourcePath: '$(build.artifactstagingdirectory)'
+    azureSubscription: 'Azure subscription 1(2)(aefb43b4-c2b2-470d-a48d-3c3b26b2d6da)'
     Destination: 'AzureBlob'
     storage: 'resip'
     ContainerName: '$web'
+
