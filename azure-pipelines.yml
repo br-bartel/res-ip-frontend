@@ -22,11 +22,11 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs: 
-    pathtoPublish: $(build.artifactstagingdirectory)
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
     
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: $(System.ArtifactsDirectory)
+    SourcePath: $(Build.ArtifactStagingDirectory)
     azureSubscription: $(azuresubscription)
     Destination: 'AzureBlob'
     storage: 'resip'
